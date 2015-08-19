@@ -1,0 +1,29 @@
+AngularJS will often create child scopes inside of directives.
+it allows a directive to have it’s own space for key/value pairs, without messing with higher level data.
+Child scopes inherit from parent scopes using prototypal inheritance. (There is an exception for isolated scopes);
+
+But we often do want to transparently write to a higher level scope, and this is where the “dot rule” comes in. 
+Let’s see how that is applied.
+
+Do not do this
+
+// Controller 
+$scope.first_name = "Jim"
+
+// HTML
+<input ng-model="first_name">
+That is bad because we can’t write to it from a child scope, because a child scope uses prototypal inheritance. Once you write to first_name from a child scope, it would become a distinct value in that child scope, and no longer refer up to the parent’s first_name.
+
+Instead, do this
+
+// Controller
+$scope.person = {
+  first_name:  "Jim"
+}
+
+// HTML
+<input ng-model="person.first_name">
+The difference is we are not storing the data directly on the scope. Now when ng-model wants to write,
+it actually does a read, then write. It reads the person property from the scope, and this will work from a 
+child scope because a child scope will search upwards for a read. Once it finds person, it writes to 
+person.first_name, which is no problem. It just works.
