@@ -2,3 +2,4 @@
 destroyed, it emits a $destroy event. Similarly, when an AngularJS scope is destroyed, it broadcasts a $destroy event to 
 listening scopes.
 
+2. 
