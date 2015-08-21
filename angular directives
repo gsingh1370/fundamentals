@@ -14,3 +14,5 @@ When should I use an attribute versus an element? Use an element when you are cr
 
 Without isolating the scope you can't reuse the directive in same controller. You would have to create new controller.
 
+As the name suggests, the isolate scope of the directive isolates everything except models that you've explicitly added to the scope: {} hash object. This is helpful when building reusable components because it prevents a component from changing your model state except for the models that you explicitly pass in
+
