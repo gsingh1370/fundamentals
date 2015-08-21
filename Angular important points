@@ -1,0 +1,4 @@
+1. There are a few special events that AngularJS emits. When a DOM node that has been compiled with Angular's compiler is
+destroyed, it emits a $destroy event. Similarly, when an AngularJS scope is destroyed, it broadcasts a $destroy event to 
+listening scopes.
+
