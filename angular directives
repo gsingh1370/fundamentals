@@ -16,3 +16,9 @@ Without isolating the scope you can't reuse the directive in same controller. Yo
 
 As the name suggests, the isolate scope of the directive isolates everything except models that you've explicitly added to the scope: {} hash object. This is helpful when building reusable components because it prevents a component from changing your model state except for the models that you explicitly pass in
 
+There are a few special events that AngularJS emits. When a DOM node that has been compiled with Angular's compiler is destroyed, it emits a $destroy event. Similarly, when an AngularJS scope is destroyed, it broadcasts a $destroy event to listening scopes.
+
+By listening to this event, you can remove event listeners that might cause memory leaks. Listeners registered to scopes and elements are automatically cleaned up when they are destroyed, but if you registered a listener on a service, or registered a listener on a DOM node that isn't being deleted, you'll have to clean it up yourself or you risk introducing a memory leak.
+
+Best Practice: Directives should clean up after themselves. You can use element.on('$destroy', ...) or scope.$on('$destroy', ...) to run a clean-up function when the directive is removed
+
