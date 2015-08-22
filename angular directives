@@ -22,3 +22,19 @@ By listening to this event, you can remove event listeners that might cause memo
 
 Best Practice: Directives should clean up after themselves. You can use element.on('$destroy', ...) or scope.$on('$destroy', ...) to run a clean-up function when the directive is removed
 
+What does this transclude option do, exactly? transclude makes the contents of a directive with this option have access to the scope outside of the directive rather than inside. I.e. binding defined in html with in directive will point to scope defined in controller and not in the directive.
+
+The & binding allows a directive to trigger evaluation of an expression in the context of the original scope, at a specific time. Any legal expression is allowed, including an expression which contains a function call. Because of this, & bindings are ideal for binding callback functions to directive behaviors
+
+Best Practice: use &attr in the scope option when you want your directive to expose an API for binding to behaviors.
+
+The myPane directive has a require option with value ^myTabs. When a directive uses this option, $compile will throw an error unless the specified controller is found. The ^ prefix means that this directive searches for the controller on its parents (without the ^ prefix, the directive would look for the controller on just its own element)
+
+Directives can specify controllers using the unsurprisingly named controller option. 
+
+Savvy readers may be wondering what the difference is between link and controller. The basic difference is that controller can expose an API, and link functions can interact with controllers using require
+
+Best Practice: use controller when you want to expose an API to other directives. Otherwise use link.
+
+
+
