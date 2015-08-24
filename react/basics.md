@@ -18,10 +18,10 @@ React
 
 Now you can use a new feature of JSX called spread attributes:
 
-  var props = {};
-  props.foo = x;
-  props.bar = y;
-  var component = <Component {...props} />;
+    var props = {};
+    props.foo = x;
+    props.bar = y;
+    var component = <Component {...props} />;
 The properties of the object that you pass in are copied onto the component's props.
 
 You can use this multiple times or combine it with other attributes. The specification order is important. Later attributes override previous ones.
