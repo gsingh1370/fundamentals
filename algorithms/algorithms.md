@@ -33,6 +33,7 @@ Poker - Texas Hold'em
 
 Standard 52 card deck
 
+```js
     function Card(rank, suit) {
       this.rank = rank;
       this.suit = suit;
@@ -50,10 +51,10 @@ Standard 52 card deck
 
     Deck.prototype.RANKS = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
     Deck.prototype.SUITS = ['c', 'd', 'h', 's'];
-
+```
 
 ### Write a method / function to shuffle the deck of cards from above
-
+```js
     Deck.prototype.shuffle = function (iterations) {
       if (typeof iterations == 'undefined') {
         iterations = 1;
@@ -68,3 +69,4 @@ Standard 52 card deck
         }.bind(this));
       }
     };
+```
