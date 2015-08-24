@@ -1,5 +1,5 @@
 ### Write a method / function that reverses a string ( please do not use a library or pre-defined function like myString.reverse() )
-
+```js
     // method 1: half index + swapping characters
     function reverse(str) {
       str = str.split('');
@@ -26,7 +26,7 @@
 
         return reversed;
     }
-
+```
 ### Design a desk of cards that can be used for various card game applications.  Be sure to mention both the cards and the game itself (pick any or feel free to abstract).
 
 Poker - Texas Hold'em
