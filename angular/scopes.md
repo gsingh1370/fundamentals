@@ -1,0 +1,27 @@
+Event Propogation:-
+html:-
+<div ng-controller="EventController">
+  Root scope <tt>MyEvent</tt> count: {{count}}
+  <ul>
+    <li ng-repeat="i in [1]" ng-controller="EventController">
+      <button ng-click="$emit('MyEvent')">$emit('MyEvent')</button>
+      <button ng-click="$broadcast('MyEvent')">$broadcast('MyEvent')</button>
+      <br>
+      Middle scope <tt>MyEvent</tt> count: {{count}}
+      <ul>
+        <li ng-repeat="item in [1, 2]" ng-controller="EventController">
+          Leaf scope <tt>MyEvent</tt> count: {{count}}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+Script:-
+angular.module('eventExample', [])
+.controller('EventController', ['$scope', function($scope) {
+  $scope.count = 0;
+  $scope.$on('MyEvent', function() {
+    $scope.count++;
+  });
+}]);
+
