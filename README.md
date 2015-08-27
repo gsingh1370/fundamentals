@@ -32,3 +32,12 @@ Fundamentals
 * http://blog.codingforinterviews.com/gregs-google-interview/
 * http://ocw.mit.edu/courses/#electrical-engineering-and-computer-science
 * http://www.cs.uiuc.edu/~jeffe/teaching/algorithms/
+
+### Practice
+* https://codility.com/programmers/
+* https://leetcode.com/
+* https://projecteuler.net/
+* http://codingbat.com/
+* http://codeforces.com/problemset
+* http://acm.timus.ru/
+* https://www.hackerrank.com/
