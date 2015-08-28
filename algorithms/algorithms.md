@@ -1,3 +1,11 @@
+Algorithms
+==========
+
+* An algorithm is a procedure that takes any of the possible input instances and transforms it to the desired output.
+
+* There are three desirable properties for a good algorithm. We seek algorithms that are correct and efficient, while being easy to implement.
+
+
 ### Write a method / function that reverses a string ( please do not use a library or pre-defined function like myString.reverse() )
 ```js
     // method 1: half index + swapping characters
