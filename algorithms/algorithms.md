@@ -5,6 +5,7 @@ Algorithms
 
 * There are three desirable properties for a good algorithm. We seek algorithms that are correct and efficient, while being easy to implement.
 
+* There is a fundamental difference between algorithms, which always produce a correct result, and heuristics, which may usually do a good job but without providing any guarantee.
 
 ### Write a method / function that reverses a string ( please do not use a library or pre-defined function like myString.reverse() )
 ```js
