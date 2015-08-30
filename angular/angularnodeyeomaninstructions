@@ -1,4 +1,4 @@
-Getting Started
+(npm install -g express-generator - if express command doesn't work)Getting Started
 Install Node.js
 
 Install Express
@@ -65,7 +65,7 @@ Now get into your server folder.
 $cd ../server/
 Use the express command to get a basic scaffolding inside of your server folder.
 
-$express
+$express(npm install -g express-generator - if express command doesn't work)
 $npm install
 This is going to give you a variety of things, most of which we'll be deleting. I find this far more expedient vs typing out all of the scaffolding yourself. Half the time I'll forget a few of the express settings and wind up bashing my head against the computer thinking it's something else.
 
