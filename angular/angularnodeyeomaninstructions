@@ -1,0 +1,160 @@
+Getting Started
+Install Node.js
+
+Install Express
+
+On the command line:
+
+$npm install -g express
+Install Yeoman & Generator-Angular
+On the command line:
+
+$npm install -g yo
+
+$npm install -g generator-angular
+Generator-Angular is a tool within Yeoman. It takes care of setting up folder structure for you, getting SASS working, putting in bootstrap if you want it, creating routes... lots of goodies. Learn more about it here. In fact, Yeoman is kind of the reason I went through all of this trouble. I wanted to use it in my workflow.
+
+Install Bower
+$npm install -g bower
+
+This is Twitter's front-end package manager. It makes it easy to grab front-end assets likle bootstrap-sass and underscore.js.
+
+Install Nodemon
+$npm install -g nodemon
+
+This makes it so that you don't have to restart your node server everytime you change code in it.
+
+Setup Folder Structure
+Somewhere on your disk, just pick a folder that you want all of this magic to happen in. Inside of it make two folders: client and server. Also, get inside of your client folder. What it looks like on the command line:
+
+$mkdir project-name
+$cd project-name
+$mkdir client
+$mkdir server
+$cd client
+The client folder will house your angular and front-end code while the server folder will house your node and express code (among other things).
+
+Scaffold out the Front End
+Now we're going to setup our angular and front-end code using the amazingness of Yeoman. Do the following on the command line inside of your client folder:
+
+$yo angular
+Yeoman will ask you to supply it some options. Say yes to Sass/compass (because you're not crazy) and yes to bootstrap and yes to the sass version of bootstrap. Also accept all of the extra angular packages (resource, cookies, sanitize, route, etc) you'll need them. NPM will begin it's usual command line vomit of all the different packages.
+
+Note: Sometimes the installation will have a brain fart here. If it does delete your client folder, remake it and do a $bower cache clean and a $npm cache clean. From there, do $yo angular again. If that doesn't do it, make sure that your Node and Yeoman are up-to-date as well.
+
+To make sure that everything is working do the following on the command line while inside of your client folder:
+
+$grunt serve
+This will fire up the angular app and it will open up in your browser. What happens here is that Yeoman creates a bunch of temporary directories and serves them while you develop the app. However, once it's built, you'll use the command grunt to minify and optimize assets that it will put into a different directory.
+
+Before we leave the client area we need to make one more change. Open up client/Gruntfile.js and change the dist output around line 25:
+
+// Project settings
+yeoman: {
+  // configurable paths
+  app: require('./bower.json').appPath || 'app',
+  dist: '../server/dist' 
+},
+This will make it so that Yeoman creates an optimized version of our app in the ../server/dist/ folder when we're ready.
+
+Press ctrl+c to end yeoman.
+
+Scaffold out the Back End
+Now get into your server folder.
+
+$cd ../server/
+Use the express command to get a basic scaffolding inside of your server folder.
+
+$express
+$npm install
+This is going to give you a variety of things, most of which we'll be deleting. I find this far more expedient vs typing out all of the scaffolding yourself. Half the time I'll forget a few of the express settings and wind up bashing my head against the computer thinking it's something else.
+
+Open up your server folder and delete the public folder and the views folder. Create a folder inside of server called dist. Open up the file server/app.js and delete the following lines:
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+and also
+
+app.use(express.static(path.join(__dirname, 'public')));
+and finally
+
+// development only
+if ('development' == app.get('env')) {
+    app.use(express.errorHandler());
+}
+
+app.get('/', routes.index);
+app.get('/users', user.list);
+We delete these because we don't need a server templating engine (angular will be handling that), we'll have to setup our own public directories, and there's no need for those routes (yet).
+
+Next we need to make it so that our express server serves files from our client directory when we're in "development" mode and from a server/dist directory when in "production" mode. Add the following lines to your server/app.js file:
+
+/**
+ * Development Settings
+ */
+
+if ('development' == app.get('env')) {
+// This will change in production since we'll be using the dist folder
+// This covers serving up the index page
+app.use(express.static(path.join(__dirname, '../client/.tmp')));
+app.use(express.static(path.join(__dirname, '../client/app')));
+app.use(express.errorHandler());
+}
+
+/**
+ * Production Settings
+ */
+if('production' == app.get('env')) {
+app.use(express.static(path.join(__dirname, '/dist')));
+}
+This is probably a little hairy at this point, so let's get through the rest of the setup and I'll explain what the point of this is. For now, all you need to know is that when we're in development we'll serve from a directory in the client folder and when we're in production we'll serve from the server/dist folder.
+
+Testing the Development Server
+Somewhere, some developer is probably going to puke at this method, but the simplicity is just too good for me to let go of. Do the following:
+
+$cd ../client/
+$grunt serve
+This will start up the yeoman server. Inside of here you'll be able to work with SASS, add angular routes and assets available through the Generator Angular path, manage dependencies with Bower, and all sorts of goodies. Now, press cmd+t to open up a new tab in terminal (so you'll have one terminal tab for your client and one for your server). Do the following:
+
+$cd ../server/
+$nodemon app.js
+Express will fire up. Navigate to localhost:3000 in your browser and you should see the same yeoman start page that you got via the grunt serve method.
+
+Yes. You have two servers running (and two terminal tabs). I know it's weird, but I'll explain why this works out at the end. Just bear with me.
+
+To shut things down, in your client terminal tab press ctrl+c to shut it down and in your server tab press ctrl+c to also shut it down.
+
+Testing the Production Server
+Back over in your client terminal tab do the following:
+
+$grunt --force
+This command tells Yeoman to optimize your app for production. You can see what is being optimized by reading through the client/Gruntfile.js file. The --force option tells it to ignore unit tests for now. If you want unit tests on, just use plain grunt.
+
+Tab back over to your server tab and do the following:
+
+$NODE_ENV=production nodemon app.js
+This tells express to run your application in production mode and serves your newly optimized angular app from server/dist instead of your client folder.
+
+This server folder is what you deploy when ready.
+
+Note: You'll notice that the glyhpicons aren't showing up. That's because the Gruntfile isn't including the icons from bootstrap. We'll fix that later by switching out Glyhpicons for Font Awesome. Font Awesome is better anyway.
+
+What the Hell Did I Just Do..
+Alright, alright. So this was probably pretty weird so let me explain just what's going on and how I use it in workflows.
+
+I set things up in development mode (which is where I have the two terminal tabs open. One is in the client folder running grunt serve and the other is in the server folder running nodemon app.js).
+
+I develop my app with yeoman, SASS, and express. As you develop you watch what the Express server is doing. In otherwords, keep your browser open to localhost:3000 or whatever Express is serving, not what Grunt /Yeoman is serving.
+
+When I'm done developing I'll do a grunt in my client terminal tab. This will optimize things and put them into the server/dist folder. I'll then deploy my server folder to my host and everything is good to go.
+
+When something like Angular or Express or Yeoman or Generator Angular needs an update, I do so with no stress.
+
+So I'll generally have 3 terminal tabs open. 1 dedicated to the client running the grunt serve; 1 dedicated to running yo: commands for angular scaffolding and bower commands for adding in packages; and 1 dedicated to running the node server.
+
+And That's How -I- Set Things Up
+I'm not saying this is the most optimal or best way. This is just how I do it. I've fiddled with a ton of other setups, including using some Yeoman generators dedicated to express + angular, but most of them wind up getting abandonded or are just too opinionated in their use of packages. If you're already a user of Yeoman and Generators you've probably tried to get things working with Express already... and if so the utility of this method probably makes a lot more sense.
+
+Next on the docket will be workflow with front-end code followed by setting up the REST services on the backend...assuming there's interest.
+
+I'm sure there are some typos here and there, so if you see them, please put them in the comments so that I can correct ASAP
