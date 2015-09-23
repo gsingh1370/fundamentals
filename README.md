@@ -12,7 +12,7 @@ Fundamentals
 
 * Angular
   * [Directives](https://github.com/gsingh1370/fundamentals/blob/master/angular/angular%20directives)
-  * [Important Points](https://github.com/gsingh1370/fundamentals/blob/master/angular/Angular%20important%20points)
+  * [Important Points](https://github.com/gsingh1370/funÂdamentals/blob/master/angular/Angular%20important%20points)
   * [Scope Prototype](https://github.com/gsingh1370/fundamentals/blob/master/angular/Angular_scope_prototype)
 
 ## Libraries
@@ -22,6 +22,8 @@ Fundamentals
 ## Object-Oriented Programming
 
 ## Performance
+* http://bigocheatsheet.com
+* https://www.interviewcake.com/article/big-o-notation-time-and-space-complexity
 
 ## Testing
 
