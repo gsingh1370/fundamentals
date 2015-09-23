@@ -41,3 +41,5 @@ Fundamentals
 * http://codeforces.com/problemset
 * http://acm.timus.ru/
 * https://www.hackerrank.com/
+* https://www.interviewcake.com/
+* http://codingforinterviews.com/
