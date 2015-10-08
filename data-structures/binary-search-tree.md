@@ -7,6 +7,17 @@ Some important attributes of binary search trees:
 * BST keys must be comparable (a < b < c)
 * O(log(n)) worst-case performance requires the tree to be balanced—that is, the tree has the minimum possible depth for its leaf nodes
 
+A Binary Search Tree is a tree comprised of multiple nodes with one root node to start with. Each node has a value, left node, and a right node. The left node value has to be less than the current node value, while the right node value is greater than the current. The biggest concern with a binary search tree is balancing. If the tree becomes unbalanced, the O(log(n)) benefit can become O(n) if the tree unbalanced (a tree with only a right path).
+
+Binary search tree (BST) can be represented by a linked data structure. Each node contains key value, data and references to left and right subtree. BST has following properties:
+
+Left subtree of a node contains only nodes with keys less than the node's key.
+Right subtree of a node contains only ondes with keys greater than the node's key.
+Left and Right subtrees are also binary search trees.
+Performance of this data structure depends on heihgt of tree. For perfect balanced tree basic operations run in O(ln n) time. If the tree is a linear chain on n nodes (linked list), the same operations take O(n) time. So when you want implement effective BST you need keep them balanced, so the search will be faster.
+
+A binary search trees is a hierarchical data structure that allows O(log(n)) retrieval and insertion. To implement a binary search tree, you need to implement a simple binary tree plus add functionality to satisfy two invariants: 1) element ordering and 2) keeping the tree height at a minimum. While the former is fairly easy to satisfy, the latter is more involved as it requires modifying the structure of the tree to keep it balanced. In the context of binary search trees, "balance" means that the left and right subtrees have similar height. An AVL tree implements a BST through operations known as rotations, of which there are two: left rotation and right rotation. Other implementations (such as red-black trees) also exist.
+
 ## Ordering Invariant
 
 At the core of binary search trees is the ordering invariant.
