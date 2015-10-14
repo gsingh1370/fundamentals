@@ -30,6 +30,56 @@ while i <= m,
     → invariant: a[1..k] in final position
 ````
 
+Merge sort A[1..n]
+
+1. If n = 1, done -- O(1)
+2. Recursively sort A[1..[n/2]] and a[n/2+1..n] -- 2T(n/2) 
+3. "Merge" 2 sorted lists -- O(n)
+ 
+### Recurrence
+T(n) = 
+{ 
+    O(1) if n = 1 (usually omit constant base cases)
+    2T(n/2) + O(n) if n > 1
+}
+
+Recursion tree: T(n) = 2T(n/2) + cn const c > 0
+
+```
+T(n) =  cn
+        / \
+    t(n/2) t(n/2)
+    
+
+T(n) =       cn              cn
+            /  \
+         cn/2  cn/2          cn
+         /\      /\
+     cn/4 cn/4  cn/4 cn/4    
+                 
+                             O(n)
+                             
+             Total = (cn)logn + O(n)
+                   = O(nlogn)
+     
+height = log n
+# of leaves = n
+```
+### Key subroutine: Merge
+
+20      12
+13      11 
+7        9
+2        1
+
+1 2 7 9... and so on
+
+Progressively find smallest, find in either list. Look at two elements, and find smallest. 
+
+Time = O(n) on n total elements
+
+
+
 ## Resources
 * http://www.sorting-algorithms.com/merge-sort
 * http://www.cs.mcgill.ca/~dprecup/courses/IntroCS/Lectures/comp250-lecture11.pdf
