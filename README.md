@@ -34,6 +34,7 @@ Fundamentals
 * http://blog.codingforinterviews.com/gregs-google-interview/
 * http://ocw.mit.edu/courses/#electrical-engineering-and-computer-science
 * http://www.cs.uiuc.edu/~jeffe/teaching/algorithms/
+* http://www.eecs.berkeley.edu/~rcs/research/interactive_latency.html
 
 ### Practice
 * https://codility.com/programmers/
