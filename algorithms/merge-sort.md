@@ -1,6 +1,31 @@
 Merge Sort
 ==========
 
+Merge sort uses divide and conquer design paradigm to sort a contiguous array of objects. It works by:
+
+Dividing the array in two halves and sorting them recursively
+Merging the two sorted halves together to create a fully sorted array
+It is an important sorting technique because:
+
+It guarantees O(nlogn) running time unlike quicksort which gives O(nlogn) average case running time and O(n^2) in worst case
+It can be modified to perform 'external sort': sorting objects stored on different machines
+Considerations when implementing it:
+
+Base case of recursion: Return from recursive calls when the length of supplied array <= 1. In this case the array is trivially sorted
+Merging subroutine: Check for overflow conditions on arrays when merging them. Overflow can occur when we have read till the end of the array and continue incrementing its reader pointer
+
+MergeSort is a recursive sorting algorithm that uses O(n log n) comparisons in the worst case. To sort an array of n elements, we perform the following three steps in sequence:
+
+Divide the unsorted list into two sublists of about half the size
+Sort each of the two sublists
+Merge the two sorted sublists back into one sorted list.
+There are two merge sort implementations: top-down (uses recursion) and bottom-up. Last one is more efficient and popular.
+
+Merge sort is a sorting algorithm which works in O(nlogn) time. It means that it is an asymptotically optimal sorting algorithm, though usually quick sort may be a better idea. Merge sort should be considered when you want to ensure stability - this algorithm doesn't change the order of elements which have the same key. It is useful for example when you want to sort a collection of data using multiple fields - first sort by name, then by surname etc. Merge sort isn't a good idea when you have limited space - it needs O(n) additional memory to sort your data.
+
+
+
+
 The concept is simple: Define a recursive function that (1) divides an array in half, (2) calls itself to sort both halves separately, and (3) merges the two resultant arrays after. Once the two sorted halves have been shuffled together, return the resulting array.
 
 Some things to keep in mind:
