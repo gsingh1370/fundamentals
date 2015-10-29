@@ -3,7 +3,19 @@ Fundamentals
 
 ## Algorithms
 
+### Greedy
+
+### Sorting
+
+* [Insertion Sort](https://github.com/gsingh1370/fundamentals/blob/master/algorithms/insertion-sort.md)
+* [Selection Sort](https://github.com/gsingh1370/fundamentals/blob/master/algorithms/selection-sort.md)
+* [Merge Sort](https://github.com/gsingh1370/fundamentals/blob/master/algorithms/merge-sort.md)
+
 ## Data Structures
+
+* [Hash Table](https://github.com/gsingh1370/fundamentals/blob/master/data-structures/hash-tables.md)
+* [Binary Search Tree](https://github.com/gsingh1370/fundamentals/blob/master/data-structures/binary-search-tree.md)
+* [Linked List](https://github.com/gsingh1370/fundamentals/blob/master/data-structures/linked-list.md)
 
 ## Databases
 
