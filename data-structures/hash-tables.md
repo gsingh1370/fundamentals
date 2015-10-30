@@ -6,6 +6,12 @@ Ideally, the hash function will assign each key to a unique bucket, but it is po
 
 In a well-dimensioned hash table, the average cost (number of instructions) for each lookup is independent of the number of elements stored in the table. Many hash table designs also allow arbitrary insertions and deletions of key-value pairs, at (amortized) constant average cost per operation.
 
+Another explanation:
+
+An associative array that maps an element of one type (the "key") to another type (the "value"). This mapping occurs via a hashing function that transforms the key into an integer. This integer is subsequently used as an index into an array where the value is stored, achieving constant-time access in the best case.
+
+However, it is possible that the hashing function will produce the same index for different keys, resulting in a "collision". One technique for handling collisions is to store a linked list at each index in the array. When a collision occurs, the linked list is traversed to find the key/value pair we are trying to retrieve. If a collision occurs, access becomes a linear-time operation. Space requirements also increase, because the key must also be stored with the value (so the key can be matched when traversing the linked list).
+
 ## Hashing
 
 In the context of hash tables, hash functions can be thought as function that takes an input from one space (e.g. strings) and outputs to a space useful for indexing (e.g. unsigned integers)
@@ -13,7 +19,6 @@ In the context of hash tables, hash functions can be thought as function that ta
 The idea of hashing is to distribute the entries (key/value pairs) across an array of buckets. Given a key, the algorithm computes an index that suggests where the entry can be found:
 
     index = f(key, array_size)
-
 
 Often this is done in two steps:
 
@@ -30,7 +35,6 @@ Probably the second most well known use for hashing is in cryptography, where al
 
 * A basic requirement is that the function should provide a uniform distribution of hash values--GOAL: minimize collisions. A non-uniform distribution increases the number of collisions and the cost of resolving them.
 
-
 ### Ideal hash
 
 * The process must be repeatable so that the same key hashes to the same index, while different keys do not.
@@ -38,11 +42,6 @@ Probably the second most well known use for hashing is in cryptography, where al
 * An ideal hash will permute its internal state such that every resulting hash value has exactly one input that will produce it. Any hash function that uses every part of the key to calculate the hash value will typically meet this requirement, so general hash functions that only process a part of the key will almost always be very poor because the differing parts of the key may not be the parts involved in creating the hash value. A good example of this is only hashing the first four or five characters of a string, and then using the algorithm to hash URLs that start with “http://”.
 
 * A hash function is said to achieve avalanche if the resulting hash value is wildly different if even a single bit is different in the key. This effect aids distribution because similar keys will not have similar hash values. A hash function that distributes the hash values in a uniform manner will minimize collisions and fill the array more evenly.
-
-
-
-
-
 
 ## Load Factor
 A critical statistic for a hash table is the load factor, that is the number of entries divided by the number of buckets:
@@ -73,6 +72,62 @@ O(1) ("constant time") search, insertion and deletion on average, and worst case
 
 Finding a book in a library
 
+## Implementations
+
+### Naive Implementations
+```js
+function Hashtable(numBuckets) {
+
+  this.numBuckets = numBuckets || 10;
+  this.buckets = [];
+
+  this.hashCode = function(key) {
+    var hash = 0;
+
+    if (key.length == 0) {
+      return hash;
+    }
+
+    for (var i = 0; i < key.length; i++) {
+       char = key.charCodeAt(i);
+       hash = ( ( hash << 5 ) - hash ) + char;
+       hash = hash & hash; // Convert to 32bit integer
+    }
+
+   return hash;
+  }
+
+  this.index = function(hash) {
+    return hash % this.numBuckets;
+  }
+
+  this.set = function(key, value) {
+    var hash = this.hashCode(key);
+    var index = this.index(hash);
+
+    if ( ! this.buckets[index] ) {
+      this.buckets[index] = [value];
+    } else {
+      this.buckets[index].push(value);
+    }
+  };
+
+  this.get = function(key) {
+    var hash = this.hashCode(key);
+    var index = this.index(hash);
+
+    if ( this.buckets[index] ) {
+      for (var i = 0; i < this.buckets[index].length; i++) {
+        if ( this.buckets[index][i] == ) {
+
+        }
+      }
+    }
+  };
+}
+
+
+```
 
 ## Further reading / references
 * https://stackoverflow.com/questions/730620/how-does-a-hash-table-work
