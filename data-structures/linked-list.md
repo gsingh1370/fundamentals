@@ -1,6 +1,11 @@
 Linked List
 ===========
 
+a linked list is a data structure consisting of a group of nodes which together represent a sequence. Under the simplest form, each node is composed of data and a reference (in other words, a link) to the next node in the sequence; more complex variants add additional links. This structure allows for efficient insertion or removal of elements from any position in the sequence.
+
+Singly-linked-list.svg
+A linked list whose nodes contain two fields: an integer value and a link to the next node. The last node is linked to a terminator used to signify the end of the list.
+
 A linked list is a data structure in which objects are arranged in a linear order. While arrays maintain a linear ordering through its indices, linked lists store their ordering with a pointer field next in each object.
 
 The simple singly-linked list consists of nodes with two fields:
@@ -164,6 +169,8 @@ public class SList
         size++;
     }
 ```
+
+
 
 ## Resources
 
