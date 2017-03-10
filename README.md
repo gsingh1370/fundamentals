@@ -47,6 +47,7 @@ Fundamentals
 * http://ocw.mit.edu/courses/#electrical-engineering-and-computer-science
 * http://www.cs.uiuc.edu/~jeffe/teaching/algorithms/
 * http://www.eecs.berkeley.edu/~rcs/research/interactive_latency.html
+* http://csfieldguide.org.nz/
 
 ### Practice
 * https://codility.com/programmers/

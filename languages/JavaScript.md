@@ -2,6 +2,7 @@ JavaScript
 ==========
 
 
+http://ryanmorr.com/understanding-scope-and-context-in-javascript/
 
 ## Gotchas
 * https://www.interviewcake.com/question/js-whats-wrong
