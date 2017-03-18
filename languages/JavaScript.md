@@ -17,6 +17,7 @@ JavaScript
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Details_of_the_Object_Model
 * https://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/
 * http://ejohn.org/blog/how-javascript-timers-work/
+* https://medium.freecodecamp.com/javascript-modules-a-beginner-s-guide-783f7d7a5fcc#.jnqpr3bho
 
 ## Advanced
 * https://github.com/getify/You-Dont-Know-JS
