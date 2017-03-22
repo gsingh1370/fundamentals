@@ -3,6 +3,7 @@ JavaScript
 ## General Reference / Basics
 * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide
 * http://eloquentjavascript.net/
+* https://medium.com/@kevincennis/prototypal-inheritance-781bccc97edb#.e9mosirg9
 
 ## Interview 
 * https://www.reddit.com/r/javascript/comments/3rb88w/ten_questions_ive_been_asked_most_more_than_once/?st=j05nakor&sh=baded86c
