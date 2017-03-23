@@ -10,6 +10,7 @@ JavaScript
 * https://www.reddit.com/r/javascript/comments/17d7xv/what_kind_of_questions_can_i_expect_on_javascript/?st=j05nb3c9&sh=9816f85c
 * https://github.com/MaximAbramchuck/awesome-interview-questions#javascript
 * https://github.com/kennymkchan/interview-questions-in-javascript
+* https://www.toptal.com/javascript/interview-questions
 
 ## Intermediate
 * http://ryanmorr.com/understanding-scope-and-context-in-javascript/
