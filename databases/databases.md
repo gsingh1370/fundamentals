@@ -11,3 +11,6 @@ The HAVING clause is a SQL construct that is used to only return rows that have 
 ### What is the difference between a LEFT OUTER JOIN and an INNER JOIN
 
 A left outer join will always return all of the records of the left table, even if the join condition does not find any matching records in the right table. In contrast, in an INNER JOIN both the left and right tables must satisfy the join predicate in order to be included in the result set.
+
+### Resources
+http://www.techfounder.net/2011/03/25/database-optimization-techniques-you-can-actually-use/
