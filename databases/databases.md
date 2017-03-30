@@ -14,3 +14,4 @@ A left outer join will always return all of the records of the left table, even 
 
 ### Resources
 http://www.techfounder.net/2011/03/25/database-optimization-techniques-you-can-actually-use/
+https://asktom.oracle.com/pls/apex/f?p=100:1:0
