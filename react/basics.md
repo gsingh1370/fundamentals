@@ -25,3 +25,7 @@ Now you can use a new feature of JSX called spread attributes:
 The properties of the object that you pass in are copied onto the component's props.
 
 You can use this multiple times or combine it with other attributes. The specification order is important. Later attributes override previous ones.
+
+## Resources
+
+* http://www.youhavetolearncomputers.com/blog/2015/9/15/a-conceptual-overview-of-redux-or-how-i-fell-in-love-with-a-javascript-state-container
