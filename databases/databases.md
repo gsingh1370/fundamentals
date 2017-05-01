@@ -12,6 +12,13 @@ The HAVING clause is a SQL construct that is used to only return rows that have 
 
 A left outer join will always return all of the records of the left table, even if the join condition does not find any matching records in the right table. In contrast, in an INNER JOIN both the left and right tables must satisfy the join predicate in order to be included in the result set.
 
+### Find duplicate values in table
+
+select column_name, count(column_name)
+from table
+group by column_name
+having count (column_name) > 1;
+
 ### Resources
 http://www.techfounder.net/2011/03/25/database-optimization-techniques-you-can-actually-use/
 https://asktom.oracle.com/pls/apex/f?p=100:1:0
