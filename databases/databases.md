@@ -19,6 +19,10 @@ from table
 group by column_name
 having count (column_name) > 1;
 
+### Delete duplicate rows
+
+DELETE FROM your_table WHERE rowid not in (SELECT MIN(rowid) FROM your_table GROUP BY column1, column2, column3);
+
 ### Resources
 http://www.techfounder.net/2011/03/25/database-optimization-techniques-you-can-actually-use/
 https://asktom.oracle.com/pls/apex/f?p=100:1:0
