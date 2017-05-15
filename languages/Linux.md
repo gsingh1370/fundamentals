@@ -9,4 +9,4 @@ cut -d':' -f1 <File name>  - -d is delimiter and -f is fields  i.e. -f1-5 (get f
 ### how to take a thread dump of tomcat running in linux
 
   If you use Linux, you can send a kill -3 [pid of your tomcat] and it will dump all current threads in the catalina.out.
-  or Login as tomcat and run jstack <PID> >> /tmp/threaddump. jstack utility is part of jdk  
+  or Login as tomcat and run jstack <P ID> >> /tmp/threaddump. jstack utility is part of jdk  
