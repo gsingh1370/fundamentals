@@ -22,6 +22,10 @@ allow other elements to sit to their left and right
 respect top & bottom margins and padding
 respect height and width
 
+### box-sizing: border-box;
+
+Specify that <div> elements should have padding and border included in the element's total width and height
+
 
 
 ## Resources
